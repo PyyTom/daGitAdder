@@ -31,13 +31,14 @@ def main(page:fl.Page):
         d.title=fl.Text(product + "'S REPOSITORY SUCCESSFULLY ADDED TO GITHUB.COM")
         d.open=True
         page.update()
-    page.window_width=260
-    page.window_height=150
+    page.window_width=1000
+    page.window_height=200
     page.window_resizable=False
     d = fl.AlertDialog()
     picker=fl.FilePicker(on_result=select)
     page.overlay.append(picker)
     b_select=fl.ElevatedButton('SELECT PRODUCT',on_click=lambda _:picker.pick_files())
     page.add(fl.Row(controls=[fl.Text('daGitAdder')],alignment=fl.MainAxisAlignment.CENTER),
-             fl.Row(controls=[b_select,fl.IconButton(icon=fl.icons.EXIT_TO_APP,icon_size=50,icon_color='red',on_click=xit)],alignment=fl.MainAxisAlignment.CENTER))
+             fl.Row(controls=[b_select],alignment=fl.MainAxisAlignment.CENTER),
+             fl.Row(controls=[fl.IconButton(icon=fl.icons.EXIT_TO_APP, icon_size=50, icon_color='red', on_click=xit)],alignment=fl.MainAxisAlignment.END))
 fl.app(target=main)
