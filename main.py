@@ -9,7 +9,6 @@ def main(page:fl.Page):
         path=(e.files[0].path)[41:-7]
         product=(path.split('/')[-2]).split('-')[0]
         technology=(path.split('/')[-2]).split('-')[1]
-        '''
         driver = webdriver.Chrome()
         driver.get('https://github.com/login')
         time.sleep(2)
@@ -23,8 +22,7 @@ def main(page:fl.Page):
         time.sleep(2)
         driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/main/react-app/div/form/div[5]/button').click()
         driver.quit()
-        '''
-        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product[:-3]+'git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git push --set-upstream origin main"')
+        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product+'.git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git push --set-upstream origin main"')
         page.dialog=d
         d.title=fl.Text(product + "'S REPOSITORY SUCCESSFULLY ADDED TO GITHUB.COM")
         d.open=True
