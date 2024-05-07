@@ -24,7 +24,7 @@ def main(page:fl.Page):
         driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/main/react-app/div/form/div[5]/button').click()
         driver.quit()
         '''
-        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product[:-3]+'git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git push -u origin main"')
+        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product[:-3]+'git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git push --set-upstream origin main"')
         page.dialog=d
         d.title=fl.Text(product + "'S REPOSITORY SUCCESSFULLY ADDED TO GITHUB.COM")
         d.open=True
