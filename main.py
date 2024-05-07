@@ -9,6 +9,9 @@ def main(page:fl.Page):
         path=(e.files[0].path)[41:-7]
         product=(path.split('/')[-2]).split('-')[0]
         technology=(path.split('/')[-2]).split('-')[1]
+        main='main.py just added'
+        readme='readme.txt just added'
+        '''
         driver = webdriver.Chrome()
         driver.get('https://github.com/login')
         time.sleep(2)
@@ -18,11 +21,12 @@ def main(page:fl.Page):
         driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/div/div/aside/div/div/loading-context/div/div[1]/div/div[1]/a').click()
         driver.find_element(By.ID,':r4:').send_keys(product)
         driver.find_element(By.NAME,'Description').send_keys(technology)
-        driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[2]/div/div[1]/div/div[2]/label').click()
+        #driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[2]/div/div[1]/div/div[2]/label').click()
         time.sleep(2)
         driver.find_element(By.XPATH,'/html/body/div[1]/div[6]/main/react-app/div/form/div[5]/button').click()
         driver.quit()
-        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product+'.git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git push --set-upstream origin main"')
+        '''
+        tell.app('Terminal', 'do script "cd '+path+' ; git init ; git remote add origin https://github.com/PyyTom/'+(product+'.git')+' ; git add main.py ; git commit -m '+"main.py just added"+' ; git add readme.txt ; git commit -m "readme.txt just added" ; git push --set-upstream origin main"')
         page.dialog=d
         d.title=fl.Text(product + "'S REPOSITORY SUCCESSFULLY ADDED TO GITHUB.COM")
         d.open=True
