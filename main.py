@@ -38,6 +38,6 @@ def main(page:fl.Page):
     picker=fl.FilePicker(on_result=select)
     page.overlay.append(picker)
     b_select=fl.ElevatedButton('SELECT PRODUCT',on_click=lambda _:picker.pick_files())
-    page.add(fl.Text('            daWebsitePopulator'),
-             fl.Row(controls=[b_select,fl.IconButton(icon=fl.icons.EXIT_TO_APP,icon_size=50,icon_color='red',on_click=xit)]))
+    page.add(fl.Row(controls=[fl.Text('daGitAdder')],alignment=fl.MainAxisAlignment.CENTER),
+             fl.Row(controls=[b_select,fl.IconButton(icon=fl.icons.EXIT_TO_APP,icon_size=50,icon_color='red',on_click=xit)],alignment=fl.MainAxisAlignment.CENTER))
 fl.app(target=main)
