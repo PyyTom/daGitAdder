@@ -1,4 +1,4 @@
-import flet as fl,time
+import flet as fl,time,os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -29,6 +29,10 @@ def main(page:fl.Page):
         d.title=fl.Text(product + "'S REPOSITORY SUCCESSFULLY ADDED TO GITHUB.COM")
         d.open=True
         page.update()
+        os.system('git init')
+        os.system('git add main.py')
+        os.system('git commit -m "main.py just added"')
+        os.system('git push --set-upstream origin main')
     page.window_width=1000
     page.window_height=200
     page.window_resizable=False
